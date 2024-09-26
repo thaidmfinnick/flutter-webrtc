@@ -102,7 +102,8 @@ class RTCPeerConnectionNative extends RTCPeerConnection {
       _iceConnectionState = iceConnectionStateForString(response['state']);
       return _iceConnectionState;
     } on PlatformException catch (e) {
-      throw 'Unable to RTCPeerConnection::getIceConnectionState: ${e.message}';
+      // throw 'Unable to RTCPeerConnection::getIceConnectionState: ${e.message}';
+      print('Unable to RTCPeerConnection::getRemoteDescription: ${e.message}');
     }
   }
 
