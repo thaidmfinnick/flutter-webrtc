@@ -355,7 +355,7 @@ NSArray<RTCDesktopSource*>* _captureSources;
     NSImage* image = [source UpdateThumbnail];
     NSData* data = [[NSData alloc] init];
     if (image != nil) {
-      NSImage* resizedImg = [self resizeImage:image forSize:NSMakeSize(320, 180)];
+      NSImage* resizedImg = [self resizeImage:image forSize:NSMakeSize(180, 180)];
       data = [resizedImg TIFFRepresentation];
     }
     postEvent(self.eventSink, @{
@@ -396,7 +396,7 @@ NSArray<RTCDesktopSource*>* _captureSources;
 - (void)didDesktopSourceThumbnailChanged:(RTC_OBJC_TYPE(RTCDesktopSource) *)source {
   // NSLog(@"didDesktopSourceThumbnailChanged: %@, id %@", source.name, source.sourceId);
   if (self.eventSink) {
-    NSImage* resizedImg = [self resizeImage:[source thumbnail] forSize:NSMakeSize(320, 180)];
+    NSImage* resizedImg = [self resizeImage:[source thumbnail] forSize:NSMakeSize(180, 180)];
     NSData* data = [resizedImg TIFFRepresentation];
     postEvent(self.eventSink, @{
       @"event" : @"desktopSourceThumbnailChanged",
